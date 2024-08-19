@@ -1,38 +1,334 @@
-.App {
-  text-align: center;
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.navbar {
+  background-color: #009688;
+  color: white;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.navbar h1 {
+  margin: 0;
+  font-size: 1.5em;
+}
+/* Ensure the buttons are styled consistently */
+.d-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.add-btn, .logout-btn {
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.add-btn {
+  background-color: #28a745; /* Green background for add button */
+  color: white;
+}
+
+.add-btn:hover {
+  background-color: #218838; /* Darker green on hover */
+}
+
+.logout-btn {
+  background-color: #dc3545; /* Red background for logout button */
+  color: white;
+}
+
+.logout-btn:hover {
+  background-color: #c82333; /* Darker red on hover */
+}
+
+/* Modal Style */
+.modal {
+  display: flex;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+  background-color: white;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 500px;
+  border-radius: 10px;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal-header h2 {
+  margin: 0;
+}
+
+.close {
+  color: #aaa;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+}
+
+.modal-body {
+  margin-top: 10px;
+}
+
+.modal-body input[type="text"],
+.modal-body textarea {
+  width: 95%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1em;
+}
+
+.modal-footer {
+  margin-top: 20px;
+  text-align: right;
+}
+
+.save-btn {
+  background-color: #009688;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1em;
+}
+
+.save-btn:hover {
+  background-color: #00796b;
+}
+
+/* Cards Style */
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 20px;
+}
+
+.status-card p {
+  font-size: 1.2em;
+  color: #666;
+  margin: 0;
+}
+
+.card {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 15px;
+  padding: 20px;
+  width: 300px;
+  max-width: 100%;
+  transition: transform 0.2s;
+  position: relative;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card-title {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+.card-body {
+  font-size: 1em;
+  color: #555;
+}
+
+.card-status {
+  margin-top: 10px;
+  font-weight: bold;
+  color: #009688;
+}
+
+.card-actions {
+  margin-top: 15px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.card-actions button {
+  background-color: #f44336;
+  color: white;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.card-actions button:hover {
+  background-color: #d32f2f;
+}
+/* login page */
+/* Login Page Styles */
+.login-page {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  min-height: 100vh;
+  background-color: #f5f5f5;
+  padding: 0 20px;
 }
 
-.App-link {
-  color: #61dafb;
+.login-title {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #333;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.login-form {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+}
+
+.login-input,
+.login-button {
+  width: 100%;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  border-radius: 4px;
+  box-sizing: border-box; /* Ensures padding and border are included in the total width */
+}
+
+.login-input {
+  border: 1px solid #ddd;
+  font-size: 1rem;
+}
+
+.login-button {
+  border: none;
+  background-color: #007bff;
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.login-button:hover {
+  background-color: #0056b3;
+}
+
+.signup-link {
+  margin-top: 1rem;
+  font-size: 0.875rem;
+  color: #555;
+}
+
+.signup-link-text {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.signup-link-text:hover {
+  text-decoration: underline;
+}
+/* signup */
+/* Signup Page Styles */
+.SignupPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: #f5f5f5;
+  padding: 0 20px;
+}
+
+.SignupPage h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.SignupPage form {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+}
+
+.SignupPage input,
+.SignupPage button {
+  width: 100%;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  border-radius: 4px;
+  box-sizing: border-box; /* Ensures padding and border are included in the total width */
+}
+
+.SignupPage input {
+  border: 1px solid #ddd;
+  font-size: 1rem;
+}
+
+.SignupPage button {
+  border: none;
+  background-color: #007bff;
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.SignupPage button:hover {
+  background-color: #0056b3;
+}
+
+.SignupPage p {
+  margin-top: 1rem;
+  font-size: 0.875rem;
+  color: #555;
+}
+
+.SignupPage a {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.SignupPage a:hover {
+  text-decoration: underline;
 }
